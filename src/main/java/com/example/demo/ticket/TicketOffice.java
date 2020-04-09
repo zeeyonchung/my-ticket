@@ -19,11 +19,15 @@ public class TicketOffice {
         return tickets.remove(0);
     }
 
-    public void minusAmount(BigDecimal amount) {
+    private void minusAmount(BigDecimal amount) {
         this.amount = this.amount.subtract(amount);
     }
 
-    public void plusAmount(BigDecimal amount) {
+    private void plusAmount(BigDecimal amount) {
         this.amount = this.amount.add(amount);
+    }
+
+    public void sellTicketTo(Audience audience) {
+        plusAmount(audience.buy(getTicket()));
     }
 }

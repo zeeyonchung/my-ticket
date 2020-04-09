@@ -16,23 +16,30 @@ public class Bag {
         this.invitation = invitation;
     }
 
-    public boolean hasInvitation() {
+    private boolean hasInvitation() {
         return invitation != null;
     }
 
-    public boolean hasTicket() {
+    private boolean hasTicket() {
         return ticket != null;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
-    public void minusAmount(BigDecimal amount) {
+    private void minusAmount(BigDecimal amount) {
         this.amount = this.amount.subtract(amount);
     }
 
-    public void plusAmount(BigDecimal amount) {
+    private void plusAmount(BigDecimal amount) {
         this.amount = this.amount.add(amount);
+    }
+
+    public BigDecimal hold(Ticket ticket) {
+        this.ticket = ticket;
+
+        if (!hasInvitation()) {
+            minusAmount(ticket.getFee());
+            return ticket.getFee();
+        }
+
+        return BigDecimal.ZERO;
     }
 }
