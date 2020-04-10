@@ -1,7 +1,5 @@
 package com.example.demo.ticket;
 
-import java.math.BigDecimal;
-
 public class Audience {
     private Bag bag;
 
@@ -9,7 +7,7 @@ public class Audience {
         this.bag = bag;
     }
 
-    public BigDecimal buy(Ticket ticket) {
+    public Money buy(Ticket ticket) {
         return bag.hold(ticket);
     }
 }

@@ -3,15 +3,15 @@ package com.example.demo.ticket;
 import java.math.BigDecimal;
 
 public class Bag {
-    private BigDecimal amount;
+    private Money amount;
     private Invitation invitation;
     private Ticket ticket;
 
-    public Bag(BigDecimal amount) {
+    public Bag(Money amount) {
         this.amount = amount;
     }
 
-    public Bag(BigDecimal amount, Invitation invitation) {
+    public Bag(Money amount, Invitation invitation) {
         this.amount = amount;
         this.invitation = invitation;
     }
@@ -24,15 +24,15 @@ public class Bag {
         return ticket != null;
     }
 
-    private void minusAmount(BigDecimal amount) {
-        this.amount = this.amount.subtract(amount);
+    private void minusAmount(Money amount) {
+        this.amount = this.amount.minus(amount);
     }
 
-    private void plusAmount(BigDecimal amount) {
-        this.amount = this.amount.add(amount);
+    private void plusAmount(Money amount) {
+        this.amount = this.amount.plus(amount);
     }
 
-    public BigDecimal hold(Ticket ticket) {
+    public Money hold(Ticket ticket) {
         this.ticket = ticket;
 
         if (!hasInvitation()) {
@@ -40,6 +40,6 @@ public class Bag {
             return ticket.getFee();
         }
 
-        return BigDecimal.ZERO;
+        return Money.ZERO;
     }
 }

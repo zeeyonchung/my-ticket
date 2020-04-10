@@ -1,16 +1,15 @@
 package com.example.demo.ticket;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class TicketOffice {
 
-    private BigDecimal amount;
+    private Money amount;
     private List<Ticket> tickets = new ArrayList<>();
 
-    public TicketOffice(BigDecimal amount, Ticket... tickets) {
+    public TicketOffice(Money amount, Ticket... tickets) {
         this.amount = amount;
         this.tickets.addAll(Arrays.asList(tickets));
     }
@@ -19,12 +18,12 @@ public class TicketOffice {
         return tickets.remove(0);
     }
 
-    private void minusAmount(BigDecimal amount) {
-        this.amount = this.amount.subtract(amount);
+    private void minusAmount(Money amount) {
+        this.amount = this.amount.minus(amount);
     }
 
-    private void plusAmount(BigDecimal amount) {
-        this.amount = this.amount.add(amount);
+    private void plusAmount(Money amount) {
+        this.amount = this.amount.plus(amount);
     }
 
     public void sellTicketTo(Audience audience) {
