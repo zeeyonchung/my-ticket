@@ -1,27 +1,17 @@
 package com.example.demo.ticket;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Bag {
     private Money amount;
-    private Invitation invitation;
-    private Ticket ticket;
+    private List<Ticket> tickets = new ArrayList<>();
 
     public Bag(Money amount) {
+        Objects.requireNonNull(amount, "amount must not be null");
+
         this.amount = amount;
-    }
-
-    public Bag(Money amount, Invitation invitation) {
-        this.amount = amount;
-        this.invitation = invitation;
-    }
-
-    private boolean hasInvitation() {
-        return invitation != null;
-    }
-
-    private boolean hasTicket() {
-        return ticket != null;
     }
 
     private void minusAmount(Money amount) {
@@ -32,14 +22,18 @@ public class Bag {
         this.amount = this.amount.plus(amount);
     }
 
+    /**
+     * 티켓 구매
+     * @param ticket 구매하려는 티켓
+     * @return 구매 후 잔액
+     */
     public Money hold(Ticket ticket) {
-        this.ticket = ticket;
-
-        if (!hasInvitation()) {
-            minusAmount(ticket.getFee());
-            return ticket.getFee();
+        if (amount.isLessThan(ticket.getFee())) {
+            throw new NotEnoughBalanceException();
         }
 
-        return Money.ZERO;
+        tickets.add(ticket);
+        minusAmount(ticket.getFee());
+        return amount;
     }
 }
