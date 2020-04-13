@@ -1,5 +1,7 @@
 package com.example.demo.ticket;
 
+import com.example.demo.ticket.exception.NotEnoughBalanceException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

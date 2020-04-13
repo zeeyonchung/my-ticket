@@ -30,4 +30,8 @@ public class Movie {
     public Money getFee() {
         return fee;
     }
+
+    public Duration getRunningTime() {
+        return runningTime;
+    }
 }

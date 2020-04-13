@@ -1,5 +1,6 @@
 package com.example.demo.ticket;
 
+import com.example.demo.ticket.exception.NotEnoughBalanceException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

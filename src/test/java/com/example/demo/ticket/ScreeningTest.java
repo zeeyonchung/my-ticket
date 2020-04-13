@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.DateTimeException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -97,6 +98,35 @@ class ScreeningTest {
 
             Ticket ticket2 = screening.reserve(100);
             assertEquals(Money.ZERO, ticket2.getFee());
+        }
+    }
+
+    @Nested
+    @DisplayName("상영 시간")
+    class RunningTimeTest {
+
+        @Test
+        @DisplayName("시작 시간에 상영 시간을 더한 시간이 지나지 않았으면 상영이 끝나지 않았다")
+        void startTimePlusRunningTimeIsSameAsNow_Then_Finished() {
+            given(movieMock.getRunningTime()).willReturn(Duration.ofMinutes(117));
+            testClock.setNow(LocalDateTime.of(2020, 4, 10, 10, 0));
+            Screening screening = new Screening(movieMock, LocalDateTime.of(2020, 4, 12, 12, 50));
+            testClock.setNow(LocalDateTime.of(2020, 4, 12, 14, 47));
+
+            boolean finished = screening.isFinished();
+            assertFalse(finished);
+        }
+
+        @Test
+        @DisplayName("시작 시간에 상영 시간을 더한 시간이 지났으면 상영이 끝났다")
+        void startTimePlusRunningTimeIsGreaterThanNow_Then_Finished() {
+            given(movieMock.getRunningTime()).willReturn(Duration.ofMinutes(117));
+            testClock.setNow(LocalDateTime.of(2020, 4, 10, 10, 0));
+            Screening screening = new Screening(movieMock, LocalDateTime.of(2020, 4, 12, 12, 50));
+            testClock.setNow(LocalDateTime.of(2020, 4, 12, 15, 0));
+
+            boolean finished = screening.isFinished();
+            assertTrue(finished);
         }
     }
 }

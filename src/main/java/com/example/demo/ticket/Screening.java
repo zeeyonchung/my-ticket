@@ -1,6 +1,7 @@
 package com.example.demo.ticket;
 
 import java.time.DateTimeException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -35,5 +36,11 @@ public class Screening {
 
     private Money calculateFee(int audienceCount) {
         return movie.getFee().times(audienceCount);
+    }
+
+    public boolean isFinished() {
+        Duration runningTime = movie.getRunningTime();
+        LocalDateTime endTime = screenedAt.plus(runningTime);
+        return Clock.now().isAfter(endTime);
     }
 }
