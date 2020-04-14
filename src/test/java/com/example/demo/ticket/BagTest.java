@@ -60,5 +60,15 @@ class BagTest {
 
             assertEquals(Money.wons(8000), balance);
         }
+
+        @Test
+        @DisplayName("보유 티켓이 한 장 늘어난다")
+        void hold_Then_OneTicketAdded() {
+            Bag bag = new Bag(Money.wons(10000));
+            Ticket ticket = new Ticket(screeningMock, Money.wons(2000), 1);
+            bag.hold(ticket);
+
+            assertEquals(1, bag.getTicketSize());
+        }
     }
 }

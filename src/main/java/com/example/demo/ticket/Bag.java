@@ -16,6 +16,10 @@ public class Bag {
         this.amount = amount;
     }
 
+    public int getTicketSize() {
+        return tickets.size();
+    }
+
     private void minusAmount(Money amount) {
         this.amount = this.amount.minus(amount);
     }
