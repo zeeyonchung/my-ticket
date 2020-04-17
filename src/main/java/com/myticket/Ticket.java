@@ -1,6 +1,6 @@
-package com.example.demo.ticket;
+package com.myticket;
 
-import com.example.demo.ticket.exception.TicketAlreadyUsedException;
+import com.myticket.exception.TicketAlreadyUsedException;
 
 import java.time.DateTimeException;
 import java.util.Objects;

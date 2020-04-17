@@ -1,5 +1,7 @@
-package com.example.demo.ticket;
+package com.myticket;
 
+import com.myticket.Money;
+import com.myticket.Movie;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

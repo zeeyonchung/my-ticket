@@ -1,5 +1,7 @@
-package com.example.demo.ticket;
+package com.myticket;
 
+import com.myticket.Theater;
+import com.myticket.Ticket;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

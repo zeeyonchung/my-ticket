@@ -1,4 +1,6 @@
-package com.example.demo.ticket;
+package com.myticket;
+
+import com.myticket.Clock;
 
 import java.time.LocalDateTime;
 

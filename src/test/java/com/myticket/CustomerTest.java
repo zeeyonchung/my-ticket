@@ -1,5 +1,9 @@
-package com.example.demo.ticket;
+package com.myticket;
 
+import com.myticket.Bag;
+import com.myticket.Customer;
+import com.myticket.Money;
+import com.myticket.Ticket;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

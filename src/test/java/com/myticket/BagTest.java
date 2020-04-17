@@ -1,6 +1,10 @@
-package com.example.demo.ticket;
+package com.myticket;
 
-import com.example.demo.ticket.exception.NotEnoughBalanceException;
+import com.myticket.Bag;
+import com.myticket.Money;
+import com.myticket.Screening;
+import com.myticket.Ticket;
+import com.myticket.exception.NotEnoughBalanceException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.example.demo.ticket;
+package com.myticket;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -78,6 +78,7 @@ class ScreeningTest {
         @DisplayName("예매 가격은 관람객 수에 비례한다")
         void reserveMoreThan1Audience_Then_FeeIsMultiplyOfMovieFee() {
             given(movieMock.getFee()).willReturn(Money.wons(5000));
+            testClock.setNow(LocalDateTime.of(2020, 4, 15, 10, 14));
             Screening screening = new Screening(movieMock, LocalDateTime.of(2020, 4, 15, 10, 15));
 
             Ticket ticket1 = screening.reserve(2);
@@ -91,6 +92,7 @@ class ScreeningTest {
         @DisplayName("영화 가격이 0원이면 예매 가격은 0원이다")
         void reserveMovieWithZeroFee_Then_FeeIsZero() {
             given(movieMock.getFee()).willReturn(Money.ZERO);
+            testClock.setNow(LocalDateTime.of(2020, 4, 15, 10, 14));
             Screening screening = new Screening(movieMock, LocalDateTime.of(2020, 4, 15, 10, 15));
 
             Ticket ticket1 = screening.reserve(2);

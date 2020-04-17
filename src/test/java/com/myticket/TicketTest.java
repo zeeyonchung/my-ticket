@@ -1,6 +1,6 @@
-package com.example.demo.ticket;
+package com.myticket;
 
-import com.example.demo.ticket.exception.TicketAlreadyUsedException;
+import com.myticket.exception.TicketAlreadyUsedException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.DateTimeException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)

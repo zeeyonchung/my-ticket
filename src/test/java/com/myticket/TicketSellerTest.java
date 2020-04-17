@@ -1,4 +1,4 @@
-package com.example.demo.ticket;
+package com.myticket;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

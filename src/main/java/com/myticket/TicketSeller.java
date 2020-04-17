@@ -1,4 +1,4 @@
-package com.example.demo.ticket;
+package com.myticket;
 
 public class TicketSeller {
     public Ticket sell(TicketSellRequest sellRequest) {

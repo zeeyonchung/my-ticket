@@ -1,4 +1,4 @@
-package com.example.demo.ticket;
+package com.myticket;
 
 import lombok.Builder;
 import lombok.Getter;

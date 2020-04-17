@@ -1,4 +1,4 @@
-package com.example.demo.ticket.exception;
+package com.myticket.exception;
 
 public class TicketAlreadyUsedException extends RuntimeException {
 }
